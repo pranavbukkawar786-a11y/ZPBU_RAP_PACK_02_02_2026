@@ -1,0 +1,6 @@
+@EndUserText.label: 'zpbu_srdef_travel_m service'
+define service Zpbu_srdef_travel_m {
+  expose zpbu_c_travel_m;
+  expose zpbu_c_booking_m;
+  expose zpbu_c_booksuppl_m;
+}

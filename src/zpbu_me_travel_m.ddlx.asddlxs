@@ -1,0 +1,57 @@
+@Metadata.layer: #CORE
+@Search.searchable: true //this will create a global search option for all fields with selectionoption on
+//for header of app
+@UI.headerInfo:
+{
+    typeName: 'Travel',
+    typeNamePlural: 'Travels', //this will give number of records
+    title:
+    {
+        type: #STANDARD,
+        label: 'Travel Details',
+        value: 'TravelId' //this will travel record to next page like "HIDE" keyword
+    }
+}
+annotate view zpbu_c_travel_m with
+{
+  @UI.lineItem: [{ position: 10 }]
+  @UI.selectionField: [{ position: 10 }]
+  @Search.defaultSearchElement: true // this will be global search option only
+  TravelId;
+
+  @UI.lineItem: [{ position: 20 }]
+  @Search.defaultSearchElement: true // this will be global search option only
+  AgencyId;
+
+  @UI.lineItem: [{ position: 25 }]
+  @UI.selectionField: [{ position: 25 }]
+  Name;
+
+  @UI.lineItem: [{ position: 30 }]
+  @Search.defaultSearchElement: true // this will be global search option only
+  CustomerId;
+
+  @UI.lineItem: [{ position: 35 }]
+  @UI.selectionField: [{ position: 35 }]
+  FirstName;
+
+  @UI.lineItem: [{ position: 40 }]
+  BeginDate;
+
+  @UI.lineItem: [{ position: 50 }]
+  EndDate;
+
+  //    BookingFee;
+  @UI.lineItem: [{ position: 60 }]
+  TotalPrice;
+  //    CurrencyCode;
+  //    Description;
+  @UI.lineItem: [{ position: 70 }]
+  @UI.selectionField: [{ position: 70 }]
+  OverallStatus;
+  //    CreatedBy;
+  //    CreatedAt;
+  //    LastChangedBy;
+  //    LastChangedAt;
+
+}
