@@ -1,6 +1,7 @@
 @AccessControl.authorizationCheck: #NOT_REQUIRED
 @EndUserText.label: 'consumption view / projection of booksuppl_m'
 @Metadata.ignorePropagatedAnnotations: true
+@Metadata.allowExtensions: true
 define view entity zpbu_c_booksuppl_m
   as projection on zpbu_i_booksuppl_m
 {

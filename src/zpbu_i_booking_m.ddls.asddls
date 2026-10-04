@@ -22,7 +22,12 @@ define view entity zpbu_i_booking_m
       flight_price    as FlightPrice,
       currency_code   as CurrencyCode,
       booking_status  as BookingStatus,
+      @Semantics.systemDateTime.localInstanceLastChangedAt: true
       last_changed_at as LastChangedAt,
+     //New pranav changes BOC
+     _carrier.AirlineID as AirlineID,
+     _carrier.Name as AirlineName,
+     //New pranav changes EOC
       _travel,
       _booksuppl,
       _customer,

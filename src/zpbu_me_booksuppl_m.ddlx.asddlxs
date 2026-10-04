@@ -1,0 +1,34 @@
+@Metadata.layer: #CORE
+@UI.headerInfo :
+{
+    typeName: 'Booked suppling details',
+    typeNamePlural: 'Supplies',  //this will give number of records
+    title: {
+        type : #STANDARD,
+        label: 'Booked supplies Details Info',
+        value: 'CurrencyCode' //this will travel record to next page like "HIDE" keyword
+    },
+    description : {
+        value: 'LastChangedAt', label: 'Last time booked' //label is not working 
+
+    }
+}
+annotate view zpbu_c_booksuppl_m with
+{
+  @UI.lineItem: [{ position: 10 }]
+  TravelId;
+  @UI.lineItem: [{ position: 20 }]
+  BookingId;
+  @UI.lineItem: [{ position: 30 }]
+  BookingSupplementId;
+  @UI.lineItem: [{ position: 40 }]
+  SupplementId;
+  @UI.lineItem: [{ position: 50 }]
+  Price;
+  @UI.lineItem: [{ position: 60 }]
+  CurrencyCode;
+  @UI.lineItem: [{ position: 70 }]
+  LastChangedAt;
+
+
+}

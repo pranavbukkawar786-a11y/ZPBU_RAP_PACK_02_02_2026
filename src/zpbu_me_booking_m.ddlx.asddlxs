@@ -1,0 +1,85 @@
+@Metadata.layer: #CORE
+@UI.headerInfo :
+{
+    typeName: 'Booking',
+    typeNamePlural: 'Booking numbers',  //this will give number of records
+    title: {
+        type : #STANDARD,
+        label: 'Booking Details Info',
+        value: 'TravelId' //this will travel record to next page like "HIDE" keyword
+    },
+    description : {
+        value: 'FlightDate', label: 'Flight details'
+
+    }
+}
+annotate view zpbu_c_booking_m with
+{
+
+  @UI.facet: [
+                {
+                    purpose : #STANDARD,
+                    type : #IDENTIFICATION_REFERENCE,
+                    label : 'Booking extra details',
+                    position:  10
+                },
+                {
+                    purpose :#STANDARD,
+                    type : #LINEITEM_REFERENCE,
+                    label : 'Booking supply list',
+                    position : 20,
+                    targetElement: '_booksuppl'
+                 }
+   ]
+
+
+  @UI.lineItem: [{ position: 10 }]
+  @UI.identification: [{ position: 10 }]
+  TravelId;
+  @UI.lineItem: [{ position: 20 }]
+  @UI.identification: [{ position: 20 }]
+  BookingId;
+  @UI.lineItem: [{ position: 30 }]
+  @UI.identification: [{ position: 30 }]
+  BookingDate;
+  @UI.lineItem: [{ position: 40 }]
+  @UI.identification: [{ position: 40 }]
+  CustomerId;
+  @UI.lineItem: [{ position: 50 , label: 'Airline group(Main)' } ]
+  @EndUserText.label: 'Airline group(Main)'
+  @UI.identification: [{ position: 50 }]
+  @Consumption.valueHelpDefinition: [{
+  entity.name: '/DMO/I_Carrier', entity.element: 'AirlineID'
+   }]
+  CarrierId;
+  
+  //BOC Pranav by own
+  @UI.lineItem: [{ position: 55 }]
+  @EndUserText.label: 'Zflight name based on ID'
+  @UI.identification: [{ position: 55 }]
+  @Consumption.valueHelpDefinition: [{
+  entity.name: '/DMO/I_Carrier', entity.element: 'Name' ,
+  additionalBinding: [{ localElement: 'CarrierId' , element: 'AirlineID' }]
+   }]
+   AirlineName;
+  //EOD Pranav by Own
+  
+  @UI.lineItem: [{ position: 60 }]
+  @UI.identification: [{ position: 60 }]
+   ConnectionId;
+  @UI.lineItem: [{ position: 70 }]
+  @UI.identification: [{ position: 70 }]
+  FlightDate;
+  @UI.lineItem: [{ position: 80 }]
+  @UI.identification: [{ position: 80 }]
+  FlightPrice;
+  @UI.lineItem: [{ position: 90 }]
+  @UI.identification: [{ position: 90 }]
+  CurrencyCode;
+  @UI.lineItem: [{ position: 100 }]
+  @UI.identification: [{ position: 100 }]
+  BookingStatus;
+  @UI.lineItem: [{ position: 110 }]
+  @UI.identification: [{ position: 110 }]
+  LastChangedAt;
+}

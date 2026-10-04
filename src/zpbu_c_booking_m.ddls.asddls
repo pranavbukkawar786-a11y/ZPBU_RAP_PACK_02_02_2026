@@ -1,6 +1,7 @@
 @AccessControl.authorizationCheck: #NOT_REQUIRED
 @EndUserText.label: 'consumption view / projection of BOOKING_M'
 @Metadata.ignorePropagatedAnnotations: true
+@Metadata.allowExtensions: true
 define view entity zpbu_c_booking_m
   as projection on zpbu_i_booking_m
 {
@@ -16,6 +17,7 @@ define view entity zpbu_c_booking_m
       CurrencyCode,
       BookingStatus,
       LastChangedAt,
+      AirlineName,
       /* Associations */
       _bookingStatus,
       _booksuppl: redirected to composition child zpbu_c_booksuppl_m,
